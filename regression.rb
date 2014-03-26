@@ -19,10 +19,10 @@ end
 x1_mean = x1_ss/x1_count
 
 for number in x1_data
-  x1_var += ((number - x1_mean) * (number - x1_mean))
+  x1_var_sum += ((number - x1_mean) * (number - x1_mean))
 end
 
-x1_var = x1_var/(x1_count - 1)
+x1_var = x1_var_sum/(x1_count - 1)
 x1_std = Math.sqrt(x1_var)
 
 y1_count = 0
@@ -38,10 +38,10 @@ end
 y1_mean = y1_ss/y1_count
 
 for number in y1_data
-  y1_var += (number - y1_mean) * (number - y1_mean)
+  y1_var_sum += (number - y1_mean) * (number - y1_mean)
 end
 
-y1_var = y1_var/(y1_count - 1)
+y1_var = y1_var_sum/(y1_count - 1)
 y1_std = Math.sqrt(y1_var)
 
 x1y1_ss = 0
@@ -50,14 +50,7 @@ x1_data.each_with_index do |number, index|
   x1y1_ss += (number - x1_mean) * (y1_data[index] - y1_mean)
 end
 
-puts x1y1_ss
-puts x1_var
-puts y1_var
-puts x1_var * y1_var
-puts Math.sqrt(x1_var * y1_var)
-puts Math.sqrt(x1y1_ss*x1y1_ss)/Math.sqrt(x1_var * y1_var)
-
-r_correlation_coefficient = x1y1_ss / Math.sqrt(x1_var * y1_var)
+r_correlation_coefficient = x1y1_ss / Math.sqrt(x1_var_sum * y1_var_sum)
 
 puts Math.sqrt(r_correlation_coefficient)
 
