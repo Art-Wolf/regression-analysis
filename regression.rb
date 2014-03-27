@@ -54,3 +54,6 @@ r_correlation_coefficient = x1y1_ss / Math.sqrt(x1_var_sum * y1_var_sum)
 
 puts Math.sqrt(r_correlation_coefficient)
 
+b_slope = r_correlation_coefficient * (y1_std/x1_std)
+
+
