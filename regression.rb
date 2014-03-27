@@ -8,6 +8,7 @@ y1_data = [7100, 15500, 4400, 4400, 5900, 4600, 8800, 2000, 2750, 2550, 960, 102
 
 x1_count = 0
 x1_mean = 0
+x1_var_sum = 0
 x1_var = 0
 x1_ss = 0
 
@@ -27,6 +28,7 @@ x1_std = Math.sqrt(x1_var)
 
 y1_count = 0
 y1_mean = 0
+y1_var_sum = 0
 y1_var = 0
 y1_ss = 0
 
@@ -46,14 +48,18 @@ y1_std = Math.sqrt(y1_var)
 
 x1y1_ss = 0
 x1_data.each_with_index do |number, index|
-  puts y1_data[index]
   x1y1_ss += (number - x1_mean) * (y1_data[index] - y1_mean)
 end
 
 r_correlation_coefficient = x1y1_ss / Math.sqrt(x1_var_sum * y1_var_sum)
 
-puts Math.sqrt(r_correlation_coefficient)
+puts r_correlation_coefficient
 
 b_slope = r_correlation_coefficient * (y1_std/x1_std)
 
+puts b_slope
+
+b0_intercept = y1_mean - (b_slope * x1_mean)
+
+puts b0_intercept
 
